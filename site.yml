@@ -1,0 +1,8 @@
+---
+# set up home linux systems
+
+- hosts: kids
+  remote_user: ansible
+
+  roles:
+    - common
