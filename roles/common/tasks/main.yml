@@ -4,6 +4,7 @@
   with_items:
     - vim
     - xorg
+    - slim
     - icewm
     - icewm-themes
   sudo: yes
