@@ -7,6 +7,7 @@
     - slim
     - icewm
     - icewm-themes
+    - ttf-ubuntu-font-family
     - chromium-browser
     - alsa-base
     - alsa-utils
@@ -16,6 +17,10 @@
     - libasound2-plugins
     - pulseaudio
     - pulseaudio-utils
+    - nvidia-current
+    - supertux
+    - supertuxkart
+    - extremetuxracer
   sudo: yes
   
 - name: set vim as default editor
