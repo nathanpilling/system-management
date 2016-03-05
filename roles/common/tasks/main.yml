@@ -5,9 +5,17 @@
     - vim
     - xorg
     - slim
-    - icewm
-    - icewm-themes
+#    - icewm
+#    - icewm-themes
+    - mate-core
+    - mate-media
+    - mate-screensaver
     - ttf-ubuntu-font-family
+    - fonts-liberation
+    - libcurl3
+    - libpango1.0-0
+    - libpangox-1.0-0
+    - libpangoxft-1.0-0
     - chromium-browser
     - alsa-base
     - alsa-utils
@@ -32,18 +40,18 @@
   sudo: yes
 
 - name: Autoaccept license for Java
-  action: shell echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  action: shell echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
   sudo: yes
 
 - name: Update APT package cache
   action: apt update_cache=yes
   sudo: yes
 
-- name: Install Java 7
-  action: apt pkg=oracle-java7-installer state=latest install_recommends=yes
+- name: Install Java 8
+  action: apt pkg=oracle-java8-installer state=latest install_recommends=yes
   sudo: yes
 
-- name: Set Java 7 Env
-  action: apt pkg=oracle-java7-set-default state=latest install_recommends=yes
+- name: Set Java 8 Env
+  action: apt pkg=oracle-java8-set-default state=latest install_recommends=yes
   sudo: yes
 
