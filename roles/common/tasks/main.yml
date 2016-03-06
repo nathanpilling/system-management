@@ -1,4 +1,8 @@
 ---
+- name: install/update the google chrome apt repo to only include the amd64 version
+  copy: src=google-chrome.list dest=/etc/apt/sources.list.d/google-chrome.list mode=644 owner=root group=root
+  sudo: yes
+
 - name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
