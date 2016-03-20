@@ -32,6 +32,7 @@
     - supertux
     - supertuxkart
     - extremetuxracer
+    - gcompris
   sudo: yes
   
 - name: set vim as default editor
@@ -58,3 +59,6 @@
   action: apt pkg=oracle-java8-set-default state=latest install_recommends=yes
   sudo: yes
 
+- name: Set up opendns
+  lineinfile: dest=/etc/dhcp/dhclient.conf regexp="^supersede domain-name-servers " insertafter="^#prepend domain-name-servers " line="supersede domain-name-servers 208.67.222.222, 208.67.220.220;"
+  sudo: yes
