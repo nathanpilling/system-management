@@ -3,6 +3,9 @@
   copy: src=google-chrome.list dest=/etc/apt/sources.list.d/google-chrome.list mode=644 owner=root group=root
   sudo: yes
 
+- name: Change /bin/sh link to bash
+  action: command bash -c "echo dash dash/sh boolean false | debconf-set-selections; dpkg-reconfigure --frontend=noninteractive dash"
+
 - name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
