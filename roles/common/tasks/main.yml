@@ -5,13 +5,15 @@
 
 - name: Change /bin/sh link to bash
   action: command bash -c "echo dash dash/sh boolean false | debconf-set-selections; dpkg-reconfigure --frontend=noninteractive dash"
+  sudo: yes
 
 - name: install packages
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - vim
     - xorg
-    - slim
+    - lightdm
+    - ubuntu-artwork
     - mate-core
     - mate-media
     - mate-screensaver
