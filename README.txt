@@ -1,6 +1,7 @@
 Start with a command-line Ubuntu install
 
 Install openssh-server and python
+Remove nano (because it's not vi)
 
 Create an ansible account with sudo w/o password rights.
 
