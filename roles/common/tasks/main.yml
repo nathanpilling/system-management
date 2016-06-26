@@ -1,8 +1,4 @@
 ---
-- name: install/update the google chrome apt repo to only include the amd64 version
-  copy: src=google-chrome.list dest=/etc/apt/sources.list.d/google-chrome.list mode=644 owner=root group=root
-  sudo: yes
-
 - name: Change /bin/sh link to bash
   action: command bash -c "echo dash dash/sh boolean false | debconf-set-selections; dpkg-reconfigure --frontend=noninteractive dash"
   sudo: yes
@@ -66,4 +62,11 @@
 
 - name: Set up opendns
   lineinfile: dest=/etc/dhcp/dhclient.conf regexp="^supersede domain-name-servers " insertafter="^#prepend domain-name-servers " line="supersede domain-name-servers 208.67.222.222, 208.67.220.220;"
+  sudo: yes
+
+- name: Disallow guest logins and don't show users on login page
+  file: path=/etc/lightdm/lightdm.conf.d state=directory mode=0755
+  sudo: yes
+
+- copy: src=50-my-custom-config.conf dest=/etc/lightdm/lightdm.conf.d/ mode=0644
   sudo: yes
